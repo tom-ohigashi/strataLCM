@@ -1,0 +1,11 @@
+# Citation for the strataLCM R package.
+# The package title and version are taken from DESCRIPTION.
+
+bibentry(
+  bibtype = "Manual",
+  title = paste0("strataLCM: ", meta$Title),
+  author = person("Tomohiro", "Ohigashi"),
+  year = "2026",
+  note = paste("R package version", meta$Version),
+  url = "https://github.com/tom-ohigashi/strataLCM"
+)

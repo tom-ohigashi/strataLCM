@@ -8,7 +8,7 @@ The package supports continuous and categorical covariates, posterior-predictive
 
 ## Installation
 
-The package is not currently distributed through CRAN. After the GitHub repository is published, it can be installed with:
+The package is not currently distributed through CRAN. Install it from GitHub with:
 
 ```r
 install.packages("remotes")
@@ -19,19 +19,19 @@ The package uses `Rcpp` and `RcppArmadillo` and requires a working C++ build too
 
 ## Model overview
 
-For stratum \(v\), the covariate distribution is modeled as
+For stratum $v$, the covariate distribution is modeled as
 
 $$
 f_v(w) = \sum_{\ell=1}^{L} \pi_{v\ell}\,h_\ell(w),
 $$
 
-where \(h_\ell\) denotes a mixture component shared across strata and \(\pi_{v\ell}\) is its stratum-specific weight. Within each component, covariates are modeled as conditionally independent: continuous variables have Gaussian kernels, and categorical variables have categorical probability distributions.
+where $h_\ell$ denotes a mixture component shared across strata and $\pi_{v\ell}$ is its stratum-specific weight. Within each component, covariates are modeled as conditionally independent: continuous variables have Gaussian kernels, and categorical variables have categorical probability distributions.
 
 The mixture weights have independent symmetric Dirichlet priors,
 
 $$
 \boldsymbol{\pi}_v \sim
-\operatorname{Dirichlet}(\alpha/L,\ldots,\alpha/L),
+\mathrm{Dirichlet}\left(\frac{\alpha}{L},\ldots,\frac{\alpha}{L}\right),
 $$
 
 where `alpha` is the **total concentration parameter**, not the concentration parameter of each individual component. The model is fitted by MCMC using an `RcppArmadillo` computational backend.
@@ -140,6 +140,17 @@ For detailed arguments and returned objects, see `?lcm_fit`, `?lcm_draw_covariat
 ## Development status
 
 This repository provides the initial `0.1.0` release of `strataLCM`. The current focus is estimation of stratum-specific covariate distributions and their posterior-predictive use; the API and documentation may evolve.
+
+
+## Citation
+
+If you use `strataLCM` in your research, please cite
+the R package using:
+
+```r
+citation("strataLCM")
+```
+
 
 ## License
 
